@@ -1,0 +1,113 @@
+# Ігнорування файлів, специфічних для ОС
+.DS_STORE
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ігнорувати файли "Icon" без розширення (проблема macOS),
+# але не ігнорувати папки "Icon" та файли "Icon" з розширеннями.
+**/Icon
+**/Icon?
+!**/Icon
+!**/Icon.*
+
+# Binaries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+
+# Лог-файли
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.npm/
+
+# Директорії для результатів збірки (приклад, можуть бути інші)
+dist
+build
+out
+/artifacts
+.cache/
+.eslintcache
+.next/ # Для Next.js
+.nuxt/ # Для Nuxt.js
+
+# Залежності
+node_modules/
+jspm_packages/
+
+# Файли оточення
+.env.local
+
+# Директорія для звітів покриття коду
+coverage
+.nyc_output
+
+# Тимчасові файли та директорії
+*.tmp
+*.swp
+*~
+
+# Файли та директорії IDE
+.build-analytics
+.history
+.husky/_
+
+# Visual Studio Code
+pubspec.lock
+.c9
+.devcontainer/*
+!.devcontainer/README.md
+!.devcontainer/recommended-devcontainer.json
+!.devcontainer/recommended-Dockerfile
+.vs
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+*.swo
+modules/.settings
+modules/.vscode
+.vimrc
+.nvimrc
+
+# JetBrains (WebStorm, IntelliJ IDEA, PhpStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+packages/
+
+# Vim
+.*.sw?
+Session.vim
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/
+build/
+
+package.lock
+start_server.js
+client/buildIndex.js
+
+package-lock.json
+yarn.lock
+yarn-error.log

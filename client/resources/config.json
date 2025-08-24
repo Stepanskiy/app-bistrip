@@ -1,0 +1,38 @@
+{
+  "application": {
+    "title": "Test title",
+    "windowTitle": "$formTitle : Test",
+    "docURL": "https://example.com",
+    "successMessageTimeout" : 3000,
+    "errorMessageTimeout" : 3000,
+    "favicon": {
+      "defaultFile": ""
+    },
+    "loginPage":{
+      "customPage" : "",
+      "authType" : {
+        "google" : false,
+        "facebook" : false,
+        "linkedIn" : false
+      },
+      "registrationAllowed" : true,
+      "registrationType" : {
+        "google" : false,
+        "facebook" : false,
+        "linkedIn" : false
+      }
+    },
+    "subsystemsPanel": {
+      "logo": "",
+      "logoHeight": "",
+      "logoWidth": "",
+      "viewBox": [],
+      "title": "Title"
+    },
+    "customFonts": [
+      "Montserrat"
+    ],
+    "homePage": {
+    }
+  }
+}

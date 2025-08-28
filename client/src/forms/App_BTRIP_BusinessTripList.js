@@ -1,10 +1,15 @@
+import { saveFormParam } from "../lib/common";
+
 /**
  * @param {D5TableForm} form
  * @param {D5Core} core
  */
 export const App_BTRIP_BusinessTripList = (form, core) => ({
-  onInitForm() {
-
+  OnShow() {
+    saveFormParam("App_BTRIP_BusinessTripEdit", "FirmID", form.filterField("FirmID").value);
+  },
+  OnApplyFilter() {
+    saveFormParam("App_BTRIP_BusinessTripEdit", "FirmID", form.filterField("FirmID").value);
   }
 });
 

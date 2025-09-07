@@ -13,6 +13,15 @@ export const BusinessTripTypes = {
   "Закордонне": 3
 };
 
+export const paymentStatusEnum = [
+    { "key": 0, "value": "Не розглянуто" },
+    { "key": 1, "value": "Відкласти" },
+    { "key": 2, "value": "Відхилити" },
+    { "key": 3, "value": "Оплатити" },
+    { "key": 9, "value": "Імпорт з 1С" }
+];
+
+
 /**
  * Преобразует объект вида ключ - простое значение к типу, совместимому с полями
  * с отображением типа Enumerator

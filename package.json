@@ -38,7 +38,10 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21"
+  },
   "scripts": {
     "start-client": "node client/index.js --start",
     "start-client-debug": "cross-env DEBUG_SERVER=true node client/index.js --start",

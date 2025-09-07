@@ -24,24 +24,24 @@ import { getEnum, BusinessTripTypes } from "../lib/enums";
  * @since 1.0.0
  */
 export const App_BTRIP_BusinessTripEdit = (form, core) => {
-  return ({
-    /**
-     * Обробник ініціалізації форми.
-     * Встановлює джерело даних для поля типу відрядження.
-     */
-    OnInit: () => {
-      form.field("TripType").datasource = getEnum(BusinessTripTypes);
-    },
-    
-    /**
-     * Обробник відображення форми.
-     * Встановлює початкові значення полів та налаштовує доступність редагування.
-     */
-    OnShow: () => {
-      setFieldInitialValue(form);
-      setFieldAvailability(form);
-    }
-  });
+    return ({
+        /**
+         * Обробник ініціалізації форми.
+         * Встановлює джерело даних для поля типу відрядження.
+         */
+        OnInit: () => {
+            form.field("TripType").datasource = getEnum(BusinessTripTypes);
+        },
+
+        /**
+         * Обробник відображення форми.
+         * Встановлює початкові значення полів та налаштовує доступність редагування.
+         */
+        OnShow: () => {
+            setFieldInitialValue(form);
+            setFieldAvailability(form);
+        }
+    });
 }
 
 
@@ -54,17 +54,17 @@ export const App_BTRIP_BusinessTripEdit = (form, core) => {
  * @private
  */
 function setFieldInitialValue(form) {
-  let firmID = restoreFormParam("App_BTRIP_BusinessTripEdit", "FirmID");
-  if (form.field("ID").value == null) {
-    if (firmID instanceof Array) {
-      form.field("FirmID").value = firmID[0];
+    let firmID = restoreFormParam("App_BTRIP_BusinessTripEdit", "FirmID");
+    if (form.field("ID").value == null) {
+        if (firmID instanceof Array) {
+            form.field("FirmID").value = firmID[0];
+        } else {
+            form.field("FirmID").value = firmID;
+        }
+        form.field("PersonID").filter = { "FirmID": firmID };
     } else {
-      form.field("FirmID").value = firmID;
+        form.field("PersonID").filter = { "FirmID": -1 };
     }
-    form.field("PersonID").filter = { "FirmID": firmID };
-  } else {
-    form.field("PersonID").filter = { "FirmID": -1 };
-  }
 }
 
 /**
@@ -75,19 +75,19 @@ function setFieldInitialValue(form) {
  * @private
  */
 function setFieldAvailability(form) {
-  if (form.field("ID").value != null) {
-    let status = form.field("ApproveStatus").value || 0;
-    if (status > 0) {
-      for (let field of form.fields) {
-        if (status != 1 || field.name != "Comment") {
-          field.isReadOnly = 1;
+    if (form.field("ID").value != null) {
+        let status = form.field("ApproveStatus").value || 0;
+        if (status > 0) {
+            for (let field of form.fields) {
+                if (status != 1 || field.name != "Comment") {
+                    field.isReadOnly = 1;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 window.userScript = {
-  ...window.userScript,
-  App_BTRIP_BusinessTripEdit
+    ...window.userScript,
+    App_BTRIP_BusinessTripEdit
 };

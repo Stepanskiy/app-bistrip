@@ -78,6 +78,7 @@ const App_BTRIP_BusinessTripList = (form, core) => {
          */
         btnSetApprovedOnClick: async () => {
             await setApprove(form, core, 1)
+            setButtonVisibility(form);
         },
 
         /**
@@ -86,6 +87,7 @@ const App_BTRIP_BusinessTripList = (form, core) => {
          */
         btnSetRejectedOnClick: async () => {
             await setApprove(form, core, 2)
+            setButtonVisibility(form);
         },
 
         /**
@@ -94,6 +96,7 @@ const App_BTRIP_BusinessTripList = (form, core) => {
          */
         btnSetNewOnClick: async () => {
             await setApprove(form, core, 0)
+            setButtonVisibility(form);
         },
 
         /**
@@ -187,11 +190,12 @@ async function setApprove(form, core, status) {
         modRequest.push({ "ID": row.data["ID"], "ApproveStatus": status });
     }
 
+    let isError = false;
+
     if (!_isEmpty(modRequest)) {
         let modResult = await core.execObjectOperation("App_BTRIP_BusinessTrips", "Approve",
             { "Request": { "App_BTRIP_BusinessTrips": modRequest } }
         );
-        let isError = false;
 
         // Обробка результату операції
         if (!_isEmpty(modResult)) {

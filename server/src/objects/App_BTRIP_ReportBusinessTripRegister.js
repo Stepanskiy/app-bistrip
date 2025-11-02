@@ -1,6 +1,7 @@
 import ApiObjectInitializer from 'd5-api-initializer';
 
 import _isEmpty from "lodash/isEmpty";
+import dayjs from "dayjs";
 
 
 new ApiObjectInitializer('App_BTRIP_ReportBusinessTripRegister', {
@@ -39,6 +40,15 @@ new ApiObjectInitializer('App_BTRIP_ReportBusinessTripRegister', {
             .setPage(-1)                        // Отримуємо всі записи без пагінації
             .invoke()
             .getResponse();
+
+        // Форматуємо дати у відповіді
+        response = response.map(item => ({
+            ...item,
+            PersonID_Name: item['PersonID.Name'],
+            StartDate: item.StartDate ? dayjs(item.StartDate).format('DD.MM.YYYY') : '',
+            EndDate: item.EndDate ? dayjs(item.EndDate).format('DD.MM.YYYY') : '',
+            Date: item.Date ? dayjs(item.Date).format('DD.MM.YYYY') : ''
+        }));
 
         reportData.Table = response;
 

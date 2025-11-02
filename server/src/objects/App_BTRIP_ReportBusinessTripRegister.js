@@ -20,7 +20,7 @@ new ApiObjectInitializer('App_BTRIP_ReportBusinessTripRegister', {
             return;
         }
 
-        response = apiCore.newApiInvoker("App_BTRIP_BusinessTrips", "List")
+        let response = apiCore.newApiInvoker("App_BTRIP_BusinessTrips", "List")
             .setColumns(
                 [
                     "PersonID.Name",                // Повне ім'я працівника

@@ -101,6 +101,9 @@ new ApiObjectInitializer('App_BTRIP_ReportBusinessTrip', {
                 if (!_isEmpty(positions)) {
                     // Проходимо по кожному запису відрядження та додаємо інформацію про посаду
                     for (let row of response) {
+                        // форматуємо дати
+                        row["StartDate"] = dayjs(row["StartDate"]).format('DD.MM.YYYY');
+                        row["EndDate"] = dayjs(row["EndDate"]).format('DD.MM.YYYY');
                         // Шукаємо відповідну посаду для поточного працівника
                         // Використовуємо числове порівняння ID для надійності
                         let found = _find(positions,(a)=>Number(a["PersonID"]) == Number(row["PersonID"]));
